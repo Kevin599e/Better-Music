@@ -1,0 +1,8 @@
+downloads/
+*.mp3
+*.m4a
+*.opus
+*.wav
+*.flac
+__pycache__/
+.venv/
