@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Simple Music Audio Downloader
 
 This is a small command-line program that accepts:
@@ -51,3 +52,7 @@ python music_downloader.py "song title" --format flac --output "C:\Music"
 ```
 
 Downloaded files are saved to `downloads` by default.
+=======
+# Better-Music
+Personalized Music Player for Discord
+>>>>>>> 0a2f72cb27462094111682284fb0eac393f6a11b
