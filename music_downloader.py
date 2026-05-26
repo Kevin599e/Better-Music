@@ -10,12 +10,7 @@ from urllib.request import Request, urlopen
 
 import yt_dlp
 
-
-FFMPEG_LOCATION = Path(
-    r"C:\Users\kevin\AppData\Local\Microsoft\WinGet\Packages"
-    r"\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe"
-    r"\ffmpeg-8.1.1-full_build\bin"
-)
+from ffmpeg_config import FFMPEG_DIR
 
 SPOTIFY_RE = re.compile(r"https?://open\.spotify\.com/(?:intl-[a-z]{2}/)?(?:track|album|playlist)/[A-Za-z0-9]+")
 YOUTUBE_RE = re.compile(r"https?://(?:www\.)?(?:youtube\.com|youtu\.be)/\S+")
@@ -85,12 +80,11 @@ def find_existing_output(info: dict, output_dir: Path, audio_format: str) -> Pat
 
 def build_ydl_options(output_dir: str | Path, audio_format: str) -> dict:
     output_dir = Path(output_dir)
-    return {
+    ydl_opts = {
         "format": "bestaudio/best",
         "noplaylist": True,
         "outtmpl": str(output_dir / "%(title).200s [%(id)s].%(ext)s"),
         "overwrites": False,
-        "ffmpeg_location": str(FFMPEG_LOCATION),
         "postprocessors": [
             {
                 "key": "FFmpegExtractAudio",
@@ -99,6 +93,11 @@ def build_ydl_options(output_dir: str | Path, audio_format: str) -> dict:
             }
         ],
     }
+
+    if FFMPEG_DIR:
+        ydl_opts["ffmpeg_location"] = str(FFMPEG_DIR)
+
+    return ydl_opts
 
 
 def download_audio(query: str, output_dir: str | Path, audio_format: str = "mp3", force: bool = False) -> Path:

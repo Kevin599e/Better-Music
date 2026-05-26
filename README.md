@@ -82,5 +82,11 @@ Download by Youtube Link
 $download https://www.youtube.com/watch?v=5cUq9qgez5w
 ```
 
+Play song by Search or Youtube Link
+```
+$play fly me to the moon
+
+$play https://www.youtube.com/watch?v=5cUq9qgez5w
+```
 
  
