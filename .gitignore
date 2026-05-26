@@ -6,3 +6,4 @@ downloads/
 *.flac
 __pycache__/
 .venv/
+api_token.txt

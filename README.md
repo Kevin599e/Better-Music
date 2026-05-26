@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# Simple Music Audio Downloader
+# Simple Music Downloader (STANDALONE)
 
 This is a small command-line program that accepts:
 
@@ -25,7 +25,15 @@ Install FFmpeg and make sure it is available on your `PATH`:
 winget install Gyan.FFmpeg
 ```
 
-## Examples
+For the discord bot set up
+Create a api_token.txt file and add your discord bot API key.
+
+
+Run the application via
+```powershell
+python .\discordThing.py
+```
+## Examples via Terminal
 
 Download by title:
 
@@ -54,5 +62,25 @@ python music_downloader.py "song title" --format flac --output "C:\Music"
 Downloaded files are saved to `downloads` by default.
 =======
 # Better-Music
-Personalized Music Player for Discord
->>>>>>> 0a2f72cb27462094111682284fb0eac393f6a11b
+
+This section explains the discord functionality of the application. 
+
+## Whats currently implemented?
+
+Search and Download Music
+
+## Example command
+
+Download by Search
+```
+$download fly me to the moon
+
+```
+Download by Youtube Link
+
+```
+$download https://www.youtube.com/watch?v=5cUq9qgez5w
+```
+
+
+ 
