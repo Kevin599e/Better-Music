@@ -44,7 +44,13 @@ async def playSong(message):
      disc_query = message.content.removeprefix("$play ").strip()
      file_path = getFilePath(disc_query)
      await music_player.play_file(message, file_path)
+
     
+async def pause(message):
+    await music_player.pause(message)
+
+async def resume(message):
+    await music_player.resume(message)
 #============================================================================#
 
 @client.event
@@ -66,6 +72,12 @@ async def on_message(message):
 
     if message.content.startswith("$play"):
         await playSong(message)
+
+    if message.content.startswith("$pause"):
+        await pause(message)
+
+    if message.content.startswith("$resume"):
+        await resume(message)
 
 
 client.run(Path("api_token.txt").read_text().strip())

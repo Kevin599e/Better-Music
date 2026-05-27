@@ -34,6 +34,7 @@ async def play_file(message, file_path: Path) -> None:
     
     source = make_audio_source(file_path)
     voice_client.play(source)
+    
 
     await message.channel.send(f"Now playing: '{file_path.name}'")
 
@@ -46,3 +47,20 @@ async def disconnect(message) -> None:
     await voice_client.disconnect()
     await message.channel.send("Disconnected from the voice channel")
 
+async def pause(message) -> None:
+    voice_client = message.guild.voice_client
+    if voice_client.is_playing():
+        voice_client.pause()
+    elif voice_client.is_paused():
+        await message.channel.send("Music is already paused.")
+    else:
+        await message.channel.send("No music is playing.")
+
+async def resume(message) -> None:
+    voice_client = message.guild.voice_client
+    if voice_client.is_paused():
+        voice_client.resume()
+    elif voice_client.is_playing():
+        await message.channel.send("Music is already playing.")
+    else:
+        await message.channel.send("No music is playing.")

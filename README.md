@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Simple Music Downloader (STANDALONE)
 
 This is a small command-line program that accepts:
@@ -69,7 +68,7 @@ This section explains the discord functionality of the application.
 
 Search and Download Music
 
-## Example command
+## Working Command
 
 Download by Search
 ```
@@ -90,3 +89,9 @@ $play https://www.youtube.com/watch?v=5cUq9qgez5w
 ```
 
  
+Pause and Resume Feature
+```
+$pause
+
+$resume
+```
